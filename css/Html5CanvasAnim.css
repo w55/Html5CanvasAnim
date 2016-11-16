@@ -1,0 +1,409 @@
+html, body {
+	text-align: center;
+	margin:0;
+	padding:0;
+	/* background: #000000; */
+	background: #fff;
+	color: #666666;
+	line-height: 1.25em;
+}
+#outer {
+	font: 90%/1.8 "Roboto", Verdana, sans-serif;
+	/* margin-top: 4px;	 */
+	position: absolute;
+	top: 10%;
+	left: 10%;	
+	/* width: 1px; */
+	/* height: 1px; */
+	overflow: visible;
+}
+#canvasContainer {
+	position: absolute;
+	width: 640px;
+	height: 640px;
+	top: -80px;
+	left:-5px;	
+
+}
+canvas {
+	width:640px;
+	height:640px;	
+	border: 3px solid #ccc;		
+	border-radius: 14px;		
+	box-shadow: 1px 3px 7px #777; 	
+}
+
+
+@media screen and (max-width: 650px){
+	#canvasContainer {
+		width: 420px;
+		height: 420px;
+		left: -5px;
+		top: -60px;
+	}
+	canvas {
+		width:420px;
+		height:420px;		
+		border: 3px solid #ccc;		
+		border-radius: 14px;		
+		box-shadow: 1px 3px 7px #777; 	
+	}
+	#outer {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 0.8em;
+		line-height: 1.5em; 
+		/* font: 40%/1.8 "Roboto", Verdana, sans-serif; */
+	}
+}
+
+/*-----------------------------------*\
+  $RESET
+\*-----------------------------------*/
+
+*, :before, :after {
+  margin: 0;
+  padding: 0;  
+  /* position: relative; */
+  
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  -o-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
+input, select, button, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  /*        appearance: none; */
+
+	cursor: pointer;
+
+    font: inherit;
+    color: inherit;
+}
+
+/*-----------------------------------*\
+  $OBJECTS
+\*-----------------------------------*/
+
+.input {
+  padding: 5px 10px;
+  margin: 8px 3px;
+
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+  .butt:focus, .input:focus {
+    outline: none;
+  }
+  
+  .label, .label-2 {
+	/* font-size: 1.1rem; */
+	font-size: 1.3rem;
+	font-weight: 400;
+  color: #f35626;
+  
+  -webkit-animation: hue 60s infinite linear;
+  -moz-animation: hue 60s infinite linear;
+  -o-animation: hue 60s infinite linear;
+  animation: hue 60s infinite linear;
+}
+	
+.butt {
+  border: 1px solid #f35626;
+  border-radius: 4px;    
+  
+  display: inline-table;
+
+  margin: 4px;
+  padding: 6px 12px;
+
+  font-size: 1.1rem;
+  font-weight: 400;
+
+  color: #f35626;
+  background-color: transparent;
+
+  
+  text-decoration: none;
+  cursor: pointer;
+  
+  -webkit-animation: hue 60s infinite linear;
+  -moz-animation: hue 60s infinite linear;
+  -o-animation: hue 60s infinite linear;
+  animation: hue 60s infinite linear;
+}
+
+  .butt--primary {
+    background-color: #f35626;
+    color: #fff;
+  }
+
+.input {
+  border: 1px solid #c0c8c9;
+  border-radius: 4px;
+  
+  padding-left: 10px;/* for IE + Yandex.Browser - correct output */  
+  padding-top: 4px; /* for IE + Yandex.Browser - correct output */  
+  height: 34px; /* for IE + Yandex.Browser - correct output */  
+}
+
+.input--dropdown {
+background-image: url("../images/ddown.svg"), none;
+background-repeat: no-repeat;
+background-size: 24px 16px;
+background-position: right center;
+}
+
+option {
+padding-left: 8px;	  
+padding-right: 8px;
+}
+
+
+#message { 
+	font-size:16px;
+	margin: 12px 8px;
+	padding-left: 10px;
+	color: #555555;
+	font-family: Helvetica, Verdana, Arial, serif;
+	border: 1px solid #f35626;
+	border-radius: 2px;
+	
+	height: 30px; /* for IE + Yandex.Browser - correct output */
+	
+	 -webkit-animation: hue 60s infinite linear;
+	 -moz-animation: hue 60s infinite linear;
+	 -o-animation: hue 60s infinite linear;
+	 animation: hue 60s infinite linear;
+}
+
+/*
+#cur_letter {
+	font-size:16px;
+	padding-left: 5px;
+	color: red;	
+}
+*/
+
+/* button and dropdown hover effects */  
+.butt:hover, .input--dropdown:hover, #message:hover {
+	  border: 1px solid #f99;
+	  box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.24);
+} 	
+.butt:active {
+  border: 1px solid #000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.48), 0 2px 8px rgba(0,0,0,0.64);
+}    
+
+ 
+ /* ---------------------------------               tooltips    >>>           ------------------------------------------ */   
+	 /* Tooltip container */
+	.tooltip, .tooltip2 {
+		position: relative;
+		display: inline-block;
+		/*  border-bottom: 1px dotted black;     If you want dots under the hoverable text */
+	}
+
+	/* Tooltip text */
+	.tooltip .tooltiptext, .tooltip2 .tooltiptext {
+		visibility: hidden;
+		width: 200px;
+		background-color: #00F;/* black; */
+		color: #FFF; /* #fff; */
+		text-align: center;
+		padding: 5px;
+		border-radius: 6px;
+		
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		z-index: 1;		
+	}
+	 .tooltip .tooltiptext {
+		top: 2px;
+		right: 110%; 
+	}
+	.tooltip2 .tooltiptext {	 
+		width: 200px;
+		bottom: 105%;
+		left: 50%; 
+		margin-left: -100px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	}
+	
+	/* Show the tooltip text when you mouse over the tooltip container */
+	.tooltip:hover .tooltiptext, .tooltip2:hover .tooltiptext {
+		visibility: visible;
+	}
+ /* ---------------------------------       <<<        tooltips             ------------------------------------------ */   
+ 
+    
+  /*-----------------------------------*\
+  $TYPOGRAPHY
+\*-----------------------------------*/
+
+h1, .alpha {
+  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
+  font-weight: 100;
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+h2, .beta {
+  margin-bottom: .75rem;
+
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (min-width: 650px) {
+  .mega {
+    font-size: 5rem;
+    line-height: 1;
+  }
+}
+
+.subhead, .meta {
+  color: #7b8993;
+}
+
+.promo {
+  text-align: center;
+}
+
+p, hr, form {
+  margin-bottom: 5px;
+}
+
+hr {
+  border: none;
+  margin-top: -1px;
+  height: 1px;
+  background-color: #c0c8c9;
+  
+  background-image: -webkit-linear-gradient(0deg, #fff, #c0c8c9, #fff);
+  background-image: -moz-linear-gradient(0deg, #fff, #c0c8c9, #fff);
+  background-image: -o-linear-gradient(0deg, #fff, #c0c8c9, #fff);
+  background-image: linear-gradient(0deg, #fff, #c0c8c9, #fff);
+}
+
+
+/*-----------------------------------*\
+  $LAYOUT
+\*-----------------------------------*/
+
+.anim_options {
+	display: inline-table;
+	top: 2px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+#output {
+	margin: 8px;
+	padding: 6px;
+	border: 1px solid #ccc;
+	border-radius: 12px;
+}
+
+/*-----------------------------------*\
+  $HEADER
+\*-----------------------------------*/
+
+.site__header {
+  -webkit-animation: bounceInUp 1s;
+  -moz-animation: bounceInUp 1s;
+  -o-animation: bounceInUp 1s;
+  animation: bounceInUp 1s;
+}
+
+  .site__title {
+    color: #feab3a;	
+    /*	
+	background-image: -webkit-linear-gradient(132deg, #feab3a, #f35626);
+	background-image: -moz-linear-gradient(132deg, #feab3a, #f35626);
+	background-image: -o-linear-gradient(132deg, #feab3a, #f35626);
+	background-image: linear-gradient(132deg, #feab3a, #f35626);
+
+	
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	-o-text-fill-color: transparent;
+    
+	-webkit-animation: hue 60s infinite linear;
+	-moz-animation: hue 60s infinite linear;
+	-o-animation: hue 60s infinite linear;
+	animation: hue 60s infinite linear;
+	*/	
+  }
+
+.site__content {
+  -webkit-animation: bounceInUp 1s;
+  -moz-animation: bounceInUp 1s;
+  -o-animation: bounceInUp 1s;
+  animation: bounceInUp 1s;
+  
+  -webkit-animation-delay: .1s;
+  -moz-animation-delay: .1s;
+  -o-animation-delay: .1s;
+  animation-delay: .1s;
+}
+
+  .site__content form {
+    -webkit-animation: bounceInUp 1s;
+    -moz-animation: bounceInUp 1s;
+    -o-animation: bounceInUp 1s;
+    animation: bounceInUp 1s;
+    
+	-webkit-animation-delay: .1s;
+	-moz-animation-delay: .1s;
+	-o-animation-delay: .1s;
+	animation-delay: .1s;
+  }
+
+/*-----------------------------------*\
+  $ANIMATIONS
+\*-----------------------------------*/
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+@-moz-keyframes hue {
+  from {
+    -moz-filter: hue-rotate(0deg);
+  }
+  to {
+    -moz-filter: hue-rotate(-360deg);
+  }
+}
+@-o-keyframes hue {
+  from {
+    -o-filter: hue-rotate(0deg);
+  }
+  to {
+    -o-filter: hue-rotate(-360deg);
+  }
+}
+
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(-360deg);
+  }
+}
+
