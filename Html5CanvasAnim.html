@@ -1,0 +1,116 @@
+<!doctype HTML>
+<html>  
+   <head>
+		<meta charset="utf-8">   
+		
+		<!-- <meta http-equiv="expires" content="0"> -->
+		<!-- <meta http-equiv="pragma" content="no-cache">	    -->
+
+		<meta name="author" content="Victor Alexeev" />
+		<meta name="copyright" content="Victor Alexeev" />
+		<meta name="description" content="Пример использования тега canvas спецификации HTML5">
+		<meta name="keywords" content="HTML5, CSS3, canvas, tag, example, sample, тег, пример">
+		
+	   <title>HTML 5 canvas example</title>
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700' rel='stylesheet' type='text/css'>
+		<!-- <link rel="stylesheet" type="text/css" href="css/Html5CanvasAnim.css">  		 -->
+		<link rel="stylesheet" type="text/css" href="css/Html5CanvasAnim.min.css">  		
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<!-- <script type="text/javascript" src="scripts/Html5CanvasAnim.js" ></script>   -->
+		<script type="text/javascript" src="scripts/Html5CanvasAnim.min.js" ></script>  
+	</head> 
+  
+	<body>  	
+		<div id="outer">
+			<div id="canvasContainer">
+
+				<p class="label"><span class="site__title">HTML5</span>: рисуем в <span class="site__title">canvas</span> <span class="label-2"></span></p> 
+
+				
+				<canvas id="mainCanvas" width="640" height="640">Missing the canvas </canvas>
+				<canvas id="mainCanvas_hidden" width="640" height="640" style="display:none;" ></canvas>
+				
+				
+				<div id="output">
+					<form>
+						<!-- <label id="lbl_balls">Настройки:</label> -->
+						<div class="anim_options">	
+							<div class="tooltip2">
+								Введите текст:
+								<span class="tooltiptext">Enter text to animate and press TAB</span>
+								<input type="text"  id="message" value="Welcome friends" maxlength="50" size="46">
+							</div>							
+							<!-- <label>Буква:</label> -->
+							<!-- <label id="cur_letter"> </label> -->
+						</div>
+						
+						<div class="anim_options tooltip2">
+							<span class="tooltiptext">Select font family for letters</span>
+							<select id="sel_font" class="input input--dropdown">
+								<option value="0" disabled>Font Family</option>
+								<option value="1">Шрифт 1</option>
+								<option value="2">Шрифт 2</option>
+							</select>
+							<!-- <br> -->
+							<!-- <label id="lbl_font">000</label> -->
+						</div>
+
+						<div class="anim_options tooltip2">
+							<span class="tooltiptext">Select animation effect</span>
+							<select id="sel_effects" class="input input--dropdown">
+								<option value="0" disabled>Animation Effect</option>
+
+								<option value="1">Базовая анимация</option>
+								<option value="2">Падение вниз</option>
+								<option value="3">Растворение</option>
+								<option value="4">Падение + растворение</option>
+							</select>
+							<!-- <br> -->
+							<!-- <label id="lbl_effects">Базовая анимация</label> -->
+						</div>
+
+						<div class="anim_options tooltip2">
+							<span class="tooltiptext">Select Radius of balls</span>
+							<select id="sel_balls_radius" class="input input--dropdown">
+								<option value="0" disabled>Radius</option>
+
+								<option value="4">4</option>
+								<option value="6">6</option>
+								<option value="8">8</option>
+								<option value="10">10</option>
+								<option value="12">12</option>
+							</select>
+							<!-- <br> -->
+							<!-- <label id="lbl_balls_radius">8</label> -->
+						</div>						
+
+
+						<div class="anim_options tooltip2">
+							<span class="tooltiptext">Select Loop time for animation</span>
+							<select id="sel_loop_time" class="input input--dropdown">
+								<option value="0" disabled>Loop</option>
+
+								<option value="50">50</option>
+								<option value="44">44</option>
+								<option value="39">39</option>
+								<option value="33">33</option>
+								<option value="27">27</option>
+								<option value="22">22</option>
+								<option value="18">18</option>
+							</select>
+							<!-- <br> -->
+							<!-- <label id="lbl_loop_time">33</label> -->
+						</div>
+						
+						<a id="but_anim" class="butt site__title">Reset</a>
+					</form>	
+				</div>	
+				<br><br><br>
+				
+			</div>		
+			<br><br><br>
+		</div>
+	</body>    
+ </html>
