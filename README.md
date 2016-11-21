@@ -7,4 +7,4 @@ Take a look: <a href="http://w55.webutu.com/Html5CanvasAnim/Html5CanvasAnim.html
 <hr>
 <img src="Screenshots/screenshot-1.jpg" alt="screenshot-1" />
 <hr>
-This example uses HTML5, CSS3 and JavaScript.
+This example uses HTML5, CSS3 and JQuery.
