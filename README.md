@@ -5,6 +5,6 @@ This example is further development of <a href="http://www.feedtank.com/labs/htm
 
 Take a look: <a href="http://w55.webutu.com/Html5CanvasAnim/Html5CanvasAnim.html">DEMO PAGE</a>.
 <hr>
-<img width="500" src="Screenshots/screenshot-1.jpg" alt="screenshot-1" />
+<img width="500" src="Screenshots/screenshot-2.jpg" alt="screenshot-2" />
 <hr>
 This example uses HTML5, CSS3 and JQuery.
